@@ -88,8 +88,6 @@ RUN groupadd -g 5000 vmail \
   && wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch" \
   && chmod +x /usr/local/bin/gosu \
   && gosu nobody true \
-  && apt-key adv --fetch-keys https://repo.dovecot.org/DOVECOT-REPO-GPG \
-  && echo "deb https://repo.dovecot.org/ce-${DOVECOT}/debian/buster buster main" > /etc/apt/sources.list.d/dovecot.list \
   && apt-get update \
   && apt-get -y --no-install-recommends install \
   dovecot-lua \
