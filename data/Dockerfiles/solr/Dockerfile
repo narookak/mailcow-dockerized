@@ -2,7 +2,7 @@ FROM solr:7.7-slim
 
 USER root
 
-ENV GOSU_VERSION 1.11
+ENV GOSU_VERSION 1.14
 
 COPY solr.sh /
 COPY solr-config-7.7.0.xml /
