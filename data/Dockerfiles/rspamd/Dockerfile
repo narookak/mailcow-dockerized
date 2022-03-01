@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM debian:bullseye-slim
 LABEL maintainer "Andre Peters <andre.peters@tinc.gmbh>"
 
 ARG DEBIAN_FRONTEND=noninteractive
