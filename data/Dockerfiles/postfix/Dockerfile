@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM ubuntu:focal
 LABEL maintainer "Andre Peters <andre.peters@servercow.de>"
 
 ARG DEBIAN_FRONTEND=noninteractive
