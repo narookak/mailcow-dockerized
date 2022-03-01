@@ -1,10 +1,10 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm
 LABEL maintainer "Andre Peters <andre.peters@servercow.de>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG DOVECOT=2.3.17.1
 ENV LC_ALL C
-ENV GOSU_VERSION 1.12
+ENV GOSU_VERSION 1.14
 
 # Add groups and users before installing Dovecot to not break compatibility
 RUN groupadd -g 5000 vmail \
@@ -90,7 +90,7 @@ RUN groupadd -g 5000 vmail \
   && gosu nobody true \
   && apt-get update \
   && apt-get -y --no-install-recommends install \
-  dovecot-lua \
+  dovecot-auth-lua \
   dovecot-managesieved \
   dovecot-sieve \
   dovecot-lmtpd \

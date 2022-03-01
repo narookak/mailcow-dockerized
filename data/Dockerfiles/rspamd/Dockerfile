@@ -1,8 +1,8 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm
 LABEL maintainer "Andre Peters <andre.peters@tinc.gmbh>"
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG CODENAME=bullseye
+ARG CODENAME=bookworm
 ENV LC_ALL C
 
 RUN apt-get update && apt-get install -y \
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
   gnupg2 \
   apt-transport-https \
   dnsutils \
-  netcat \
+  netcat-traditional \
   && apt-get update \
   && apt-get --no-install-recommends -y install rspamd redis-tools procps nano \
   && rm -rf /var/lib/apt/lists/* \

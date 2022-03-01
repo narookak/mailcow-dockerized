@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm
 LABEL maintainer "Andre Peters <andre.peters@servercow.de>"
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   syslog-ng-core \
   syslog-ng-mod-redis \
   dirmngr \
-  netcat \
+  netcat-traditional \
   psmisc \
   wget \
   patch \
