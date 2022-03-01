@@ -1,8 +1,9 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm
 
 LABEL maintainer "André Peters <andre.peters@servercow.de>"
 
 ARG CLAMAV=0.103.5
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
   ca-certificates \
   zlib1g-dev \
@@ -22,6 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   rsync \
   dos2unix \
   netcat \
+  tini \
   && rm -rf /var/lib/apt/lists/* \
   && wget -O - https://www.clamav.net/downloads/production/clamav-${CLAMAV}.tar.gz | tar xfvz - \
   && cd clamav-${CLAMAV} \
@@ -55,6 +57,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && rm -rf /tmp/* /var/tmp/*
 
 COPY clamd.sh ./
-COPY tini /sbin/tini
 
-CMD ["/sbin/tini", "-g", "--", "/clamd.sh"]
+CMD ["/usr/bin/tini", "-g", "--", "/clamd.sh"]
