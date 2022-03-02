@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   dnsutils \
   rsync \
   dos2unix \
-  netcat \
+  netcat-traditional \
   tini \
   && rm -rf /var/lib/apt/lists/* \
   && wget -O - https://www.clamav.net/downloads/production/clamav-${CLAMAV}.tar.gz | tar xfvz - \
