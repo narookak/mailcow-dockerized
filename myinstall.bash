@@ -8,6 +8,7 @@ chmod a+x /usr/local/bin/docker-compose
 cd /opt
 git clone https://github.com/narookak/mailcow-dockerized.git
 cd mailcow-dockerized
+ git checkout linux_arm64
 ./generate_config.sh 
 
 
